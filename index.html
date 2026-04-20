@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<title>10 анимированных элементов</title>
+<style>
+body{
+  background:#111;
+  color:#fff;
+  font-family:Arial;
+  padding:30px;
+}
+
+/* ЛЕНТА */
+.list{
+  display:flex;
+  flex-direction:column;
+  gap:25px;
+}
+
+/* ОБЩЕЕ */
+.item{
+  display:flex;
+  align-items:center;
+  gap:15px;
+  text-decoration:none;
+  color:#fff;
+}
+
+/* 1. Hover кнопка */
+.btn{
+  padding:12px 24px;
+  background:#3498db;
+  transition:.3s;
+}
+.btn:hover{
+  background:#2ecc71;
+  transform:scale(1.1);
+}
+
+/* 2. Fade */
+.fade{
+  width:80px;
+  height:40px;
+  background:#555;
+  animation:fade 1.5s infinite alternate;
+}
+@keyframes fade{
+  from{opacity:0;}
+  to{opacity:1;}
+}
+
+/* 3. Движение */
+.move{
+  width:40px;
+  height:40px;
+  background:red;
+  animation:move 2s infinite alternate;
+}
+@keyframes move{
+  from{transform:translateX(0);}
+  to{transform:translateX(150px);}
+}
+
+/* 4. Прыжок */
+.ball{
+  width:40px;
+  height:40px;
+  background:orange;
+  border-radius:50%;
+  animation:jump 1s infinite ease-in-out;
+}
+@keyframes jump{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-40px);}
+}
+
+/* 5. Лоадер */
+.loader{
+  width:30px;
+  height:30px;
+  border:4px solid #555;
+  border-top:4px solid #fff;
+  border-radius:50%;
+  animation:spin 1s linear infinite;
+}
+@keyframes spin{
+  to{transform:rotate(360deg);}
+}
+
+/* 6. Пульс */
+.pulse{
+  width:40px;
+  height:40px;
+  background:#9b59b6;
+  animation:pulse 1.5s infinite;
+}
+@keyframes pulse{
+  0%{transform:scale(1);}
+  50%{transform:scale(1.2);}
+  100%{transform:scale(1);}
+}
+
+/* 7. Меню-иконка */
+.menu{
+  width:40px;
+  height:30px;
+  background:#444;
+  position:relative;
+}
+.menu::before,
+.menu::after{
+  content:"";
+  position:absolute;
+  width:40px;
+  height:5px;
+  background:white;
+  left:0;
+}
+.menu::before{top:0;}
+.menu::after{bottom:0;}
+
+/* 8. Карточка */
+.card{
+  width:80px;
+  height:50px;
+  background:#333;
+  transition:.3s;
+}
+.card:hover{
+  transform:translateY(-8px);
+  box-shadow:0 10px 20px rgba(0,0,0,.6);
+}
+
+/* 9. Typing */
+.typing{
+  width:0;
+  overflow:hidden;
+  white-space:nowrap;
+  border-right:2px solid #fff;
+  animation:typing 3s steps(12) infinite;
+}
+@keyframes typing{
+  to{width:120px;}
+}
+
+/* 10. Точки */
+.dots span{
+  display:inline-block;
+  width:8px;
+  height:8px;
+  background:#fff;
+  border-radius:50%;
+  margin-right:4px;
+  animation:dot 1s infinite;
+}
+.dots span:nth-child(2){animation-delay:.2s;}
+.dots span:nth-child(3){animation-delay:.4s;}
+@keyframes dot{
+  0%,100%{transform:translateY(0);}
+  50%{transform:translateY(-10px);}
+}
+</style>
+</head>
+
+<body>
+
+<div class="list">
+
+<a class="item" href="https://developer.mozilla.org/ru/docs/Web/CSS/transition" target="_blank">
+  <div class="btn">Hover</div><span>Кнопка</span>
+</a>
+
+<a class="item" href="https://developer.mozilla.org/ru/docs/Web/CSS/opacity" target="_blank">
+  <div class="fade"></div><span>Fade</span>
+</a>
+
+<a class="item" href="https://developer.mozilla.org/ru/docs/Web/CSS/transform" target="_blank">
+  <div class="move"></div><span>Движение</span>
+</a>
+
+<a class="item" href="https://ru.wikipedia.org/wiki/Мяч" target="_blank">
+  <div class="ball"></div><span>Прыжок</span>
+</a>
+
+<a class="item" href="https://developer.mozilla.org/ru/docs/Web/CSS/animation" target="_blank">
+  <div class="loader"></div><span>Лоадер</span>
+</a>
+
+<a class="item" href="https://developer.mozilla.org/ru/docs/Web/CSS/transform-function/scale" target="_blank">
+  <div class="pulse"></div><span>Пульс</span>
+</a>
+
+<a class="item" href="https://ru.wikipedia.org/wiki/Меню" target="_blank">
+  <div class="menu"></div><span>Меню</span>
+</a>
+
+<a class="item" href="https://ru.wikipedia.org/wiki/Карточка" target="_blank">
+  <div class="card"></div><span>Карточка</span>
+</a>
+
+<a class="item" href="https://developer.mozilla.org/ru/docs/Web/CSS/steps" target="_blank">
+  <div class="typing">Typing text</div><span>Typing</span>
+</a>
+
+<a class="item" href="https://ru.wikipedia.org/wiki/Загрузка" target="_blank">
+  <div class="dots"><span></span><span></span><span></span></div>
+  <span>Точки</span>
+</a>
+
+</div>
+
+</body>
+</html>
